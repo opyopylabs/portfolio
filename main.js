@@ -7,28 +7,29 @@ function animateCards() {
     let topCard = cards[0]; // Get the first card
     let text = topCard.querySelector("span"); // Get the text inside
 
-    // Move the card up and fade out with its text
-    text.style.opacity = "0"; // Fade out text
-    topCard.style.transform = "translateY(-120%)";
-    topCard.style.opacity = "0";
+    // Fade out the text before moving the card
+    http://text.style.opacity = "0";
 
     setTimeout(() => {
-        // Instantly reset the card's position & move to the bottom
-        topCard.style.transition = "none";
-        text.style.transition = "none";
+        // Move the top card upwards and fade out
+        //topCard.style.transform = "translateY(-120%)";
+        //topCard.style.opacity = "0";
+    }, 300); // Give text some time to fade out first
 
-        topCard.style.transform = "translateY(0)";
-        topCard.style.opacity = "1";
-        text.style.opacity = "1"; // Fade text back in
+    setTimeout(() => {
+        // Reset position & move the card to the bottom
+        //topCard.style.transition = "none";
+        //topCard.style.transform = "translateY(0)";
+        //topCard.style.opacity = "1";
 
         container.appendChild(topCard); // Move first card to end
 
-        // Restore transition after reset
         setTimeout(() => {
-            topCard.style.transition = "transform 0.8s ease-in-out, opacity 0.5s ease-in-out";
-            text.style.transition = "opacity 0.5s ease-in-out";
+            // Restore transition and fade text back in
+            //topCard.style.transition = "transform 0.8s ease-in-out, opacity 0.8s ease-in-out";
+            //text.style.opacity = "1";
         }, 50);
-    }, 800); // Wait for animation to complete before resetting
+    }, 1000); // Wait for card to move before resetting
 }
 
 // Run animation every 3 seconds
